@@ -30,3 +30,23 @@ function setSearchFormData(id, placeholder) {
 function setDataTarget(datatarget) {
     $('section#registers a').attr('data-target', `#${datatarget}`);
 }
+
+function setLastPage(page) {
+    localStorage.setItem('lastPage', page);
+}
+
+function getLastPage() {
+    switch (localStorage.getItem('lastPage')) {
+        case 'customer':
+            $('header #customer').trigger('click');
+            break;
+        case 'product':
+            $('header #product').trigger('click');
+            break;
+        case 'sale':
+            $('header #sale').trigger('click');
+            break;
+        default:
+            $('header #customer').trigger('click');
+    }
+}

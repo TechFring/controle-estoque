@@ -9,6 +9,7 @@ let product = {
 $('header #product').on('click', () => {
     setTitle(product.title);
     loadModal(product.modal);
+    setLastPage('product');
     setSearchFormData(product.idSearch, product.placeholder);
     setDataTarget(product.dataTarget);
     getProductStatistics();

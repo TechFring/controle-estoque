@@ -9,6 +9,7 @@ let sale = {
 $('header #sale').on('click', () => {
     setTitle(sale.title);
     loadModal(sale.modal);
+    setLastPage('sale');
     setSearchFormData(sale.idSearch, sale.placeholder);
     setDataTarget(sale.dataTarget);
     getSaleStatistics();

@@ -9,6 +9,7 @@ let customer = {
 $('header #customer').on('click', () => {
     setTitle(customer.title);
     loadModal(customer.modal);
+    setLastPage('customer');
     setSearchFormData(customer.idSearch, customer.placeholder);
     setDataTarget(customer.dataTarget);
     getCustomerStatistics();

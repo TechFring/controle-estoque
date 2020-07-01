@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    $('header #customer').trigger('click');
+    getLastPage();
 });
 
 $('#navbar ul li div a').on('click', () => {
