@@ -1,0 +1,160 @@
+<!-- Edit Sale -->
+<div class="modal fade" id="editSale">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title lead">
+                    <i class="fas fa-user-edit"></i>&nbsp;Edição de venda
+                </span>
+
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+
+            <form>
+                <div class="container">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label class="col-5" for="saleId1">ID</label>
+                            <div class="col-7">
+                                <input class="form-control" name="saleId1" id="saleId1" type="text" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-5" for="dateSale1">Data/Hora</label>
+                            <div class="col-7">
+                                <input class="form-control" name="dateSale1" id="dateSale1" type="text" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-5" for="customerCpf1">CPF cliente<span class="text-muted">*</span></label>
+                            <div class="col-7">
+                                <input class="form-control" name="customerCpf1" id="customerCpf1" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-5" for="productId1">ID produto</label>
+                            <div class="col-7">
+                                <input class="form-control" name="productId1" id="productId1" type="text" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-5" for="productPrice1">Preço unitário</label>
+                            <div class="col-7">
+                                <input class="form-control" name="productPrice1" id="productPrice1" type="text" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-5" for="amount1">Quantidade</label>
+                            <div class="col-7">
+                                <input class="form-control" name="amount1" id="amount1" type="text" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-5" for="totalPrice1">Valor total</label>
+                            <div class="col-7">
+                                <input class="form-control" name="totalPrice1" id="totalPrice1" type="text" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="container">
+                        <div class="row mb-2">
+                            <input class="btn btn-dark btn-block" type="submit" value="Editar">
+                        </div>
+
+                        <div class="row">
+                            <input class="btn btn-outline-dark btn-block" type="button" value="Voltar"
+                                data-dismiss="modal">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /Edit Sale -->
+
+
+
+
+
+<!-- Create Sale -->
+<div class="modal fade" id="createSale">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title lead">
+                    <i class="fas fa-user-plus"></i>&nbsp;Nova venda
+                </span>
+
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                </button>
+            </div>
+
+            <form>
+                <div class="container">
+                    <div class="modal-body">
+                        <div class="form-group row">
+                            <label class="col-5" for="customerCpf2">CPF cliente<span class="text-muted">*</span></label>
+                            <div class="col-7">
+                                <input class="form-control" name="customerCpf2" id="customerCpf2" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-5" for="productId2">ID produto<span
+                                    class="text-muted">*</span></label>
+                            <div class="col-7">
+                                <input class="form-control" name="productId2" id="productId2" type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-5" for="productPrice2">Preço unitário<span
+                                    class="text-muted">*</span></label>
+                            <div class="col-7">
+                                <input class="form-control" name="productPrice2" id="productPrice2"
+                                    type="text">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-5" for="amount2">Quantidade<span class="text-muted">*</span></label>
+                            <div class="col-7">
+                                <input class="form-control" name="amount2" id="amount2" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="container">
+                        <div class="row mb-2">
+                            <button class="btn btn-dark btn-block" type="submit">
+                                Cadastrar
+                            </button>
+                        </div>
+
+                        <div class="row">
+                            <button class="btn btn-outline-dark btn-block" type="button" data-dismiss="modal">
+                                Voltar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /Create Sale -->

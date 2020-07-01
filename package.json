@@ -1,0 +1,26 @@
+{
+  "name": "controle_estoque",
+  "version": "1.0.0",
+  "description": "Aplicação de controle de estoque",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechFring/controle_estoque.git"
+  },
+  "author": "Danilo Miranda Ferreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechFring/controle_estoque/issues"
+  },
+  "homepage": "https://github.com/TechFring/controle_estoque#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.1",
+    "alertifyjs": "^1.13.1",
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.14.3"
+  }
+}

@@ -1,0 +1,65 @@
+/* Navbar
+************************************/
+section#registers {
+    min-height: 500px;
+}
+
+.dropdown-menu a:active {
+    background: #000;
+    color: #fff;
+}
+
+
+/* Formulários
+************************************/
+label.error {
+    font-size: 0.8em;
+}
+
+input.error {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid black;
+}
+
+
+/* Media queries
+************************************/
+/*Extra small devices (portrait phones, less than 576px)
+*/
+/* @media (max-width: 575.98px) { 
+    .imagem {
+        height: 236px;
+    }
+} */
+
+/* Small devices (landscape phones, 576px and up)
+*/
+/* @media (min-width: 576px) and (max-width: 767.98px) {
+    .imagem {
+        height: 296px;
+    }
+} */
+
+/* Medium devices (tablets, 768px and up)
+*/
+/* @media (min-width: 768px) and (max-width: 991.98px) {
+    .imagem {
+        height: 191px;
+    }
+} */
+
+/* Large devices (desktops, 992px and up)
+*/
+/* @media (min-width: 992px) and (max-width: 1199.98px) { 
+    .imagem {
+        height: 261px;
+    }
+} */
+
+/* Extra large devices (large desktops, 1200px and up)
+*/
+/* @media (min-width: 1200px) { 
+    .imagem {
+        height: 313px;
+    }
+} */

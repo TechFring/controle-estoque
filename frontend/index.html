@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de estoque</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+
+    <!-- AlertifyJS CSS -->
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/alertify.min.css">
+    <link rel="stylesheet" href="../node_modules/alertifyjs/build/css/themes/default.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <div class="container">
+                <div class="navbar-brand">
+                    <span id="title"></span>
+                </div>
+
+                <button class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#navbar">
+                    <i class="fas fa-cog fa-lg py-1"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav nav-tabs ml-auto">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" title="Clientes">
+                                <i class="fas fa-users fa-lg"></i>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <h6 class="dropdown-header">Menu de clientes</h6>
+
+                                <a href="#" class="dropdown-item" id="customer">
+                                    <i class="fas fa-chart-bar"></i>&nbsp;Estatísticas e registros
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" title="Produtos">
+                                <i class="fas fa-shopping-cart fa-lg"></i>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <h6 class="dropdown-header">Menu de produtos</h6>
+
+                                <a href="#" class="dropdown-item" id="product">
+                                    <i class="fas fa-chart-bar"></i>&nbsp;Estatísticas e registros
+                                </a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" title="Vendas">
+                                <i class="fas fa-money-check-alt fa-lg"></i>
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <h6 class="dropdown-header">Menu de vendas</h6>
+
+                                <a href="#" class="dropdown-item" id="sale">
+                                    <i class="fas fa-chart-bar"></i>&nbsp;Estatísticas e registros
+                                </a>
+                            </div>
+                        </li>
+
+                        <!-- <li class="nav-item">
+                            <a href="#" class="nav-link font-weight-bold" id="logout">
+                                <i class="fas fa-sign-out-alt fa-lg"></i>&nbsp;Fazer logout
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+    <!-- /Header -->
+
+
+
+
+
+    <!-- Content -->
+    <section id="content">
+        
+        <!-- Statistics -->
+        <section class="container mt-2">
+            <div>
+                <h3>Estatísticas</h3>
+            </div>
+
+            <hr>
+
+            <div class="row" id="statistics">
+
+            </div>
+        </section>
+        <!-- /Statistics -->
+
+        <!-- Registers -->
+        <section class="container mt-3 mb-5" id="registers">
+
+            <h3>Registros</h3>
+        
+            <hr>
+
+            <div class="d-flex">
+                <div>
+                    <a href="#" class="text-muted" data-toggle="modal">
+                        <span class="lead align-bottom">Novo registro</span>
+                    </a>
+                </div>
+        
+                <div class="ml-auto">
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <input class="form-control" type="search" required>
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-dark" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
+            <div class="table-responsive mt-3">
+                <table class="table table-hover text-center">
+                    <thead class="thead-dark">
+                        <tr> 
+                        </tr>
+                    </thead>
+        
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <!-- /Registers -->
+
+    </section>
+    <!-- /Content -->
+
+
+
+
+
+    <!-- Modal -->
+    <section id="modal">
+    </section>
+    <!-- /Modal -->
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <hr>
+            <div class="row">
+                <div class="col-sm-6 d-flex align-items-center mb-3 mb-sm-0">
+                    <span class="lead"><i class="fas fa-box-open"></i>&nbsp;Controle de estoque</span>
+                </div>
+
+                <div class="col-sm-4 ml-auto">
+                    <h5 class="lead text-muted">Links úteis</h5>
+                    <a class="btn btn-outline-dark btn-block btn-lg" href="https://www.linkedin.com/in/danilo-miranda-877851135/" target="_blank">
+                        <i class="fab fa-linkedin-in fa-lg"></i>
+                    </a>
+                    <a class="btn btn-outline-dark btn-block btn-lg" href="https://github.com/TechFring" target="_blank">
+                        <i class="fab fa-github fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col my-4">
+                    <blockquote class="blockquote text-center">
+                        <footer class="blockquote-footer">Desenvolvido por<cite>&nbsp;Danilo Miranda Ferreira</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/alertifyjs/build/alertify.min.js"></script>
+    
+    <!-- Customer -->
+    <script src="js/customer/customer_requests.js"></script>
+    <script src="js/customer/customer_functions.js"></script>
+    <script src="js/customer/customer_events.js"></script>
+    
+    <!-- Product -->
+    <script src="js/product/product_requests.js"></script>
+    <script src="js/product/product_functions.js"></script>
+    <script src="js/product/product_events.js"></script>
+
+    <!-- Sale -->
+    <script src="js/sale/sale_requests.js"></script>
+    <script src="js/sale/sale_functions.js"></script>
+    <script src="js/sale/sale_events.js"></script>
+
+    <!-- All -->
+    <script src="js/events.js"></script>
+    <script src="js/functions.js"></script>
+</body>
+
+</html>
