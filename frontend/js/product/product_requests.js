@@ -28,9 +28,19 @@ function getProductRegisters() {
         data: {
             type: 1
         },
+        beforeSend: () => {
+            $('section#registers').find('.spn').remove();
+            $('section#registers').append(
+                `<div class="d-flex align-items-center spn">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                </div>`
+            );
+        },
         success: data => {
             let array = data.split('+');
 
+            $('section#registers').find('.spn').remove();
             $('section#registers thead tr').empty();
             $('section#registers tbody').empty();
 
@@ -42,12 +52,12 @@ function getProductRegisters() {
                 <th></th>`
             );
 
+            let registers = [];
+
             $.each(array, (index, value) => {
                 let product = JSON.parse(value);
-
-                $('section#registers tbody').append(
-                    `
-                    <tr>
+                registers.push(
+                    `<tr class="d-none">
                         <td>${product.id}</td>
                         <td>${product.nome}</td>
                         <td>${product.estoque}</td>
@@ -67,12 +77,21 @@ function getProductRegisters() {
                                 </div>
                             </div>
                         </td>
-                    </tr>
-                    `
+                    </tr>`
                 )
             });
+
+            let time = 300;
+            $.each(registers, (index, value) => {
+                $('section#registers tbody').append(value);
+                $('section#registers tbody').find('tr:last').fadeIn(time).removeClass('d-none');
+                time += 300;
+            });
         }, 
-        error: error => console.log(error)
+        error: error => {
+            $('section#registers').find('.spn').remove();
+            console.log(error);
+        }
     });
 }
 
@@ -129,17 +148,29 @@ function searchProduct(d) {
             type: 4,
             character: d
         },
+        beforeSend: () => {
+            $('tbody').empty();
+            $('section#registers').find('.spn').remove();
+            $('section#registers').append(
+                `<div class="d-flex align-items-center spn">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                </div>`
+            );
+        },
         success: data => {
             let array = data.split('+');
 
-            $('tbody').empty();
+            $('section#registers').find('.spn').remove();
+
+            let registers = [];
 
             $.each(array, (index, value) => {
                 if (value.trim() != '') {
                     let product = JSON.parse(value);
 
-                    $('#content tbody').append(
-                        `<tr>
+                    registers.push(
+                        `<tr class="d-none">
                             <td>${product.id}</td>
                             <td>${product.nome}</td>
                             <td>${product.estoque}</td>
@@ -163,8 +194,18 @@ function searchProduct(d) {
                     );
                 }
             });
+
+            let time = 300;
+            $.each(registers, (index, value) => {
+                $('section#registers tbody').append(value);
+                $('section#registers tbody').find('tr:last').fadeIn(time).removeClass('d-none');
+                time += 300;
+            });
         },
-        error: error => console.log(error)
+        error: error => {
+            // $('div#statistics').parent().find('.spn').remove();
+            console.log(error);
+        }
     }); 
 }
 
@@ -175,13 +216,22 @@ function getProductStatistics() {
         data: {
             type: 5
         },
+        beforeSend: () => {
+            $('div#statistics').parent().find('.spn').remove();
+            $('#statistics').parent().append(
+                `<div class="d-flex align-items-center spn">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                </div>`
+            );
+        },
         success: data => {
             let dataJson = JSON.parse(data);
 
             let cards = [];
 
             cards.push(
-                `<div class="col-md-6 col-lg-4 mb-4">
+                `<div class="col-md-6 col-lg-4 mb-4 d-none">
                     <div class="card">
                         <div class="card-header text-center">
                             <i class="fas fa-clock fa-lg"></i>
@@ -200,7 +250,7 @@ function getProductStatistics() {
             );
 
             cards.push(
-                `<div class="col-md-6 col-lg-4 mb-4">
+                `<div class="col-md-6 col-lg-4 mb-4 d-none">
                     <div class="card">
                         <div class="card-header text-center">
                             <i class="fas fa-sort-amount-up fa-lg"></i>
@@ -219,7 +269,7 @@ function getProductStatistics() {
             );
 
             cards.push(
-                `<div class="col-md-6 col-lg-4 mb-4">
+                `<div class="col-md-6 col-lg-4 mb-4 d-none">
                     <div class="card">
                         <div class="card-header text-center">
                             <i class="fas fa-sort-amount-down fa-lg"></i>
@@ -238,7 +288,7 @@ function getProductStatistics() {
             );
 
             cards.push(
-                `<div class="col-md-6 col-lg-4 mb-4">
+                `<div class="col-md-6 col-lg-4 mb-4 d-none">
                     <div class="card">
                         <div class="card-header text-center">
                             <i class="fas fa-trophy fa-lg"></i>
@@ -257,7 +307,7 @@ function getProductStatistics() {
             );
 
             cards.push(
-                `<div class="col-md-6 col-lg-4 mb-4">
+                `<div class="col-md-6 col-lg-4 mb-4 d-none">
                     <div class="card">
                         <div class="card-header text-center">
                             <i class="fas fa-boxes fa-lg"></i>
@@ -274,12 +324,19 @@ function getProductStatistics() {
                 </div>`
             );
 
+            $('div#statistics').parent().find('.spn').remove();
             $('div#statistics').empty();
 
+            let time = 300;
             $.each(cards, (index, value) => {
                 $('div#statistics').append(value);
+                $('div#statistics').find('div.col-md-6:last').fadeIn(time).removeClass('d-none');
+                time += 300;
             });
         },
-        error: error => console.log(error)
+        error: error => {
+            $('div#statistics').parent().find('.spn').remove();
+            console.log(error);
+        }
     });
 }

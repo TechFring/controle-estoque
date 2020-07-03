@@ -28,9 +28,19 @@ function getCustomerRegisters() {
         data: {
             type: 1
         },
+        beforeSend: () => {
+            $('section#registers').find('.spn').remove();
+            $('section#registers').append(
+                `<div class="d-flex align-items-center spn">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                </div>`
+            );
+        },
         success: data => {
             let array = data.split('+');
             
+            $('section#registers').find('.spn').remove();
             $('section#registers thead tr').empty();
             $('section#registers tbody').empty();
 
@@ -43,11 +53,12 @@ function getCustomerRegisters() {
                 <th></th>`
             );
 
+            let registers = [];
+
             $.each(array, (index, value) => {
                 let customer = JSON.parse(value);   
-
-                $('section#registers tbody').append(
-                    `<tr>
+                registers.push(
+                    `<tr class="d-none">
                         <td>${customer.cpf}</td>
                         <td>${customer.nome}</td>
                         <td>${customer.dataNasc}</td>
@@ -71,8 +82,18 @@ function getCustomerRegisters() {
                     </tr>`
                 )
             });
+
+            let time = 300;
+            $.each(registers, (index, value) => {
+                $('section#registers tbody').append(value);
+                $('section#registers tbody').find('tr:last').fadeIn(time).removeClass('d-none');
+                time += 300;
+            });
         },
-        error: error => console.log(error)
+        error: error => {
+            $('section#registers').find('.spn').remove();
+            console.log(error);
+        }
     });
 }
 
@@ -129,17 +150,29 @@ function searchCustomer(d) {
             type: 4,
             character: d
         },
+        beforeSend: () => {
+            $('tbody').empty();
+            $('section#registers').find('.spn').remove();
+            $('section#registers').append(
+                `<div class="d-flex align-items-center spn">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                </div>`
+            );
+        },
         success: data => {
             let array = data.split('+');
 
-            $('tbody').empty();
+            $('section#registers').find('.spn').remove();
+
+            let registers = [];
 
             $.each(array, (index, value) => {
                 if (value.trim() != '') {
                     let customer = JSON.parse(value);
 
-                    $('#content tbody').append(
-                        `<tr>
+                    registers.push(
+                        `<tr class="d-none">
                             <td>${customer.cpf}</td>
                             <td>${customer.nome}</td>
                             <td>${customer.dataNasc}</td>
@@ -165,6 +198,12 @@ function searchCustomer(d) {
                 }
             });
 
+            let time = 300;
+            $.each(registers, (index, value) => {
+                $('section#registers tbody').append(value);
+                $('section#registers tbody').find('tr:last').fadeIn(time).removeClass('d-none');
+                time += 300;
+            });
         },
         error: error => console.log(error)
     });
@@ -177,13 +216,22 @@ function getCustomerStatistics() {
         data: {
             type: 5
         },
+        beforeSend: () => {
+            $('div#statistics').parent().find('.spn').remove();
+            $('#statistics').parent().append(
+                `<div class="d-flex align-items-center spn">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                </div>`
+            );
+        },
         success: data => {
             let dataJson = JSON.parse(data);
 
             let cards = [];
             
             cards.push(
-                `<div class="col-md-6 col-lg-4 mb-4">
+                `<div class="col-md-6 col-lg-4 mb-4 d-none">
                     <div class="card">
                         <div class="card-header text-center">
                             <i class="fas fa-user-friends fa-lg"></i></i>
@@ -201,7 +249,7 @@ function getCustomerStatistics() {
             );
 
             cards.push(
-                `<div class="col-md-6 col-lg-4 mb-4">
+                `<div class="col-md-6 col-lg-4 mb-4 d-none">
                     <div class="card">
                         <div class="card-header text-center">
                             <i class="fas fa-male fa-lg"></i>
@@ -219,7 +267,7 @@ function getCustomerStatistics() {
             );
             
             cards.push(
-                `<div class="col-md-6 col-lg-4 mb-4">
+                `<div class="col-md-6 col-lg-4 mb-4 d-none">
                     <div class="card">
                         <div class="card-header text-center">
                             <i class="fas fa-female fa-lg"></i>
@@ -237,7 +285,7 @@ function getCustomerStatistics() {
             );
             
             cards.push(
-                `<div class="col-md-6 col-lg-4 mb-4">
+                `<div class="col-md-6 col-lg-4 mb-4 d-none">
                     <div class="card">
                         <div class="card-header text-center">
                             <i class="fas fa-trophy fa-lg"></i>
@@ -257,7 +305,7 @@ function getCustomerStatistics() {
             );
             
             cards.push(
-                `<div class="col-md-6 col-lg-4 mb-4">
+                `<div class="col-md-6 col-lg-4 mb-4 d-none">
                     <div class="card">
                         <div class="card-header text-center">
                             <i class="fas fa-calendar-check fa-lg"></i>
@@ -276,12 +324,19 @@ function getCustomerStatistics() {
                 </div>`
             );
             
+            $('div#statistics').parent().find('.spn').remove();
             $('div#statistics').empty();
 
+            let time = 300;
             $.each(cards, (index, value) => {
                 $('div#statistics').append(value);
+                $('div#statistics').find('div.col-md-6:last').fadeIn(time).removeClass('d-none');
+                time += 300;
             });
         },
-        error: error => console.log(error)
+        error: error => {
+            $('div#statistics').parent().find('.spn').remove();
+            console.log(error);
+        }
     });
 }
