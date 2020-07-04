@@ -4,13 +4,13 @@
 
 ### Introdução
 Esta aplicação trata se de um trabalho acadêmico e foi desenvolvida inicialmente com o propósito de obtenção de nota na Av1 (avaliação 1)
-da disciplina de Aplicações Web. Disciplina que foi ministrada por [Ivonete Ferreira](mailto:ivonete.sousa@projecao.br)
+da disciplina de Aplicações Web. Disciplina que foi ministrada por Ivonete Ferreira
 no 3° semestre do curso de Análise e Desenvolvimento de Sistemas.
 
 ### Funcionalidades
 - Aplicação de página única (SPA)
 - Responsividade
-- Mantem cadastro de clientes, produtos e vendas
+- Mantem os cadastros de clientes, produtos e vendas
 - Campo para a busca de registros
 - Apresenta algumas estátisticas em cada página
 - Salva a última página acessada no armazenamento local
@@ -22,7 +22,7 @@ no 3° semestre do curso de Análise e Desenvolvimento de Sistemas.
 A base de dados da aplicação possui triggers configuradas que são responsáveis por:
 - Dar baixa no estoque
 - Fazer o estorno de vendas
-- Calcular o valor total da venda (preço unitário * quantidade)
+- Calcular e lançar o valor total da venda (preço unitário * quantidade)
 
 ### Instalando a aplicação
 
