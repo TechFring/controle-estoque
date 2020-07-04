@@ -53,11 +53,9 @@ function getCustomerRegisters() {
                 <th></th>`
             );
 
-            let registers = [];
-
             $.each(array, (index, value) => {
                 let customer = JSON.parse(value);   
-                registers.push(
+                $('section#registers tbody').append(
                     `<tr class="d-none">
                         <td>${customer.cpf}</td>
                         <td>${customer.nome}</td>
@@ -84,9 +82,8 @@ function getCustomerRegisters() {
             });
 
             let time = 300;
-            $.each(registers, (index, value) => {
-                $('section#registers tbody').append(value);
-                $('section#registers tbody').find('tr:last').fadeIn(time).removeClass('d-none');
+            $.each($('section#registers tbody').find('tr'), (index, value) => {
+                $(value).fadeIn(time).removeClass('d-none');
                 time += 300;
             });
         },
@@ -165,13 +162,11 @@ function searchCustomer(d) {
 
             $('section#registers').find('.spn').remove();
 
-            let registers = [];
-
             $.each(array, (index, value) => {
                 if (value.trim() != '') {
                     let customer = JSON.parse(value);
 
-                    registers.push(
+                    $('section#registers tbody').append(
                         `<tr class="d-none">
                             <td>${customer.cpf}</td>
                             <td>${customer.nome}</td>
@@ -199,9 +194,8 @@ function searchCustomer(d) {
             });
 
             let time = 300;
-            $.each(registers, (index, value) => {
-                $('section#registers tbody').append(value);
-                $('section#registers tbody').find('tr:last').fadeIn(time).removeClass('d-none');
+            $.each($('section#registers tbody').find('tr'), (index, value) => {
+                $(value).fadeIn(time).removeClass('d-none');
                 time += 300;
             });
         },

@@ -52,11 +52,10 @@ function getProductRegisters() {
                 <th></th>`
             );
 
-            let registers = [];
-
             $.each(array, (index, value) => {
                 let product = JSON.parse(value);
-                registers.push(
+
+                $('section#registers tbody').append(
                     `<tr class="d-none">
                         <td>${product.id}</td>
                         <td>${product.nome}</td>
@@ -82,9 +81,8 @@ function getProductRegisters() {
             });
 
             let time = 300;
-            $.each(registers, (index, value) => {
-                $('section#registers tbody').append(value);
-                $('section#registers tbody').find('tr:last').fadeIn(time).removeClass('d-none');
+            $.each($('section#registers tbody').find('tr'), (index, value) => {
+                $(value).fadeIn(time).removeClass('d-none');
                 time += 300;
             });
         }, 
@@ -163,13 +161,13 @@ function searchProduct(d) {
 
             $('section#registers').find('.spn').remove();
 
-            let registers = [];
+            // let registers = [];
 
             $.each(array, (index, value) => {
                 if (value.trim() != '') {
                     let product = JSON.parse(value);
 
-                    registers.push(
+                    $('section#registers tbody').append(
                         `<tr class="d-none">
                             <td>${product.id}</td>
                             <td>${product.nome}</td>
@@ -196,14 +194,13 @@ function searchProduct(d) {
             });
 
             let time = 300;
-            $.each(registers, (index, value) => {
-                $('section#registers tbody').append(value);
-                $('section#registers tbody').find('tr:last').fadeIn(time).removeClass('d-none');
+            $.each($('section#registers tbody').find('tr'), (index, value) => {
+                $(value).fadeIn(time).removeClass('d-none');
                 time += 300;
             });
         },
         error: error => {
-            // $('div#statistics').parent().find('.spn').remove();
+            $('div#statistics').parent().find('.spn').remove();
             console.log(error);
         }
     }); 
