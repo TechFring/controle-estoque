@@ -15,14 +15,17 @@ no 3° semestre do curso de Análise e Desenvolvimento de Sistemas.
 - Apresenta algumas estátisticas em cada página
 - Salva a última página acessada no armazenamento local
 
-### Captura de tela
-![clientes](https://user-images.githubusercontent.com/54766216/86433743-edadd280-bcd1-11ea-9ce7-34ae6955fd98.jpg)
-
 ### Base de dados
 A base de dados da aplicação possui triggers configuradas que são responsáveis por:
 - Dar baixa no estoque
 - Fazer o estorno de vendas
 - Calcular e lançar o valor total da venda (preço unitário * quantidade)
+
+### Assista ao vídeo da aplicação em funcionamento
+[![Aplicação de controle de estoque](http://img.youtube.com/vi/Qjw5NFfL8qk/0.jpg)](http://www.youtube.com/watch?v=Qjw5NFfL8qk "Vídeo da aplicação em funcionamento")
+
+### Captura de tela
+![clientes](https://user-images.githubusercontent.com/54766216/86433743-edadd280-bcd1-11ea-9ce7-34ae6955fd98.jpg)
 
 ### Instalando a aplicação
 
